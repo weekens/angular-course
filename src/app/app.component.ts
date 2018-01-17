@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  showText = false;
+  clicks: number[] = [];
+
+  onToggleClicked() {
+    this.showText = !this.showText;
+    this.clicks.push(this.clicks.length + 1);
+  }
 }
