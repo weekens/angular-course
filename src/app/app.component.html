@@ -1,1 +1,10 @@
 <app-game-control (timer)="onTimer($event)"></app-game-control>
+
+<div *ngFor="let value of events">
+  <div *ngIf="value % 2 === 0">
+    <app-even [value]="value"></app-even>
+  </div>
+  <div *ngIf="value % 2 !== 0">
+    <app-odd [value]="value"></app-odd>
+  </div>
+</div>

@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public events: number[] = [];
+
   onTimer(value: number) {
     console.log('onTimer:', value);
+    this.events.push(value);
   }
 }
