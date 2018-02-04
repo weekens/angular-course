@@ -19,7 +19,22 @@ describe('GameControlComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should correctly generate events after start', async function() {
+    let result = await new Promise((resolve) => {
+      let obs = component.timer.asObservable();
+      let events: number[] = [];
+
+      obs.subscribe(value0 => {
+        events.push(value0);
+
+        if (events.length === 3) {
+          resolve(events);
+        }
+      });
+
+      component.onStart();
+    });
+
+    expect(result).toEqual([1, 2, 3]);
   });
 });
